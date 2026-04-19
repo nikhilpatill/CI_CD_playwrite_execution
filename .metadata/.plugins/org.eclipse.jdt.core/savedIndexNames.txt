@@ -1,0 +1,16 @@
+INDEX VERSION 1.134+G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\.metadata\.plugins\org.eclipse.jdt.core
+1317523677.index
+6359735.index
+3942378097.index
+2908438055.index
+2402924058.index
+411437751.index
+3640332929.index
+1816772147.index
+3244779740.index
+2134475052.index
+1506081555.index
+135663516.index
+1865797976.index
+2434250778.index
+2526652617.index

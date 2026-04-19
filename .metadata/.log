@@ -1,0 +1,457 @@
+!SESSION 2026-04-19 23:37:30.481 -----------------------------------------------
+eclipse.buildId=4.30.0.20231201-1200
+java.version=17.0.12
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -data G:\Jankin_playwright\Playwright-Java-PageObjectModel-master -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.eclemma.core 4 0 2026-04-19 23:37:56.643
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.core [151]
+  Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.11.202310140853"
+       org.jacoco.agent [482]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.11.202310140853"
+       org.jacoco.report [484]
+         Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+              org.jacoco.core [483]
+                Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.6.0,9.7.0)"
+                  -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.6.0"; version="9.6.0"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+                     org.objectweb.asm.tree [493]
+                       Unresolved requirement: Import-Package: org.objectweb.asm; version="9.6.0"
+                         -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.6.0"; version="9.6.0"
+                            org.objectweb.asm [491]
+                              No resolution report for the bundle.                       Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.6.0"
+                         -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.6.0"; version="9.6.0"
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.6.0,9.7.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.6.0"; version="9.6.0"
+         Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.6.0,9.7.0)"
+           -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.6.0"; version="9.6.0"
+         Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"
+         Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.objectweb.asm"
+         Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.11,0.8.12)"
+           -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.internal.data"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.11.202310140853"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.6.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1852)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1845)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1786)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1750)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1672)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.eclemma.ui 4 0 2026-04-19 23:37:56.768
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.ui [153]
+  Unresolved requirement: Require-Bundle: org.eclipse.eclemma.core
+    -> Bundle-SymbolicName: org.eclipse.eclemma.core; bundle-version="3.1.8.202311140945"; singleton:="true"
+       org.eclipse.eclemma.core [151]
+         Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.11,0.8.12)"
+           -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.11.202310140853"
+              org.jacoco.agent [482]
+                No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.11,0.8.12)"
+           -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.11.202310140853"
+              org.jacoco.report [484]
+                Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+                     org.jacoco.core [483]
+                       Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.6.0,9.7.0)"
+                         -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.6.0"; version="9.6.0"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+                            org.objectweb.asm.tree [493]
+                              Unresolved requirement: Import-Package: org.objectweb.asm; version="9.6.0"
+                                -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.6.0"; version="9.6.0"
+                                   org.objectweb.asm [491]
+                                     No resolution report for the bundle.                              Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.6.0"
+                                -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.6.0"; version="9.6.0"
+                       Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.6.0,9.7.0)"
+                         -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.6.0"; version="9.6.0"
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.6.0,9.7.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.6.0"; version="9.6.0"
+                Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"
+                Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.data,org.objectweb.asm"
+                Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.11,0.8.12)"
+                  -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.11.202310140853"; version="0.8.11"; uses:="org.jacoco.core.internal.data"
+         Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.11,0.8.12)"
+           -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.11.202310140853"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.11,0.8.12)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.11.202310140853"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.11.202310140853"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.6.0)(!(version>=9.7.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.6.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.6.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1852)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1845)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1786)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1750)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1672)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY ch.qos.logback.classic 1 0 2026-04-19 23:37:57.253
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.equinox.app 0 0 2026-04-19 23:37:58.434
+!MESSAGE Product org.eclipse.epp.package.java.product could not be found.
+
+!ENTRY ch.qos.logback.classic 1 0 2026-04-19 23:38:00.052
+!MESSAGE Logback config file: G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.2.1.20231030-1438.xml
+
+!ENTRY org.eclipse.jface 2 0 2026-04-19 23:38:07.028
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2026-04-19 23:38:07.028
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-04-19 23:38:15.510
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Nikhil'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.testng.eclipse 4 4 2026-04-19 23:39:06.106
+!MESSAGE Error
+!STACK 1
+Java Model Exception: Error in Java Model (code 969): Playwright-Java-PageObjectModel-master does not exist
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:549)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getPerProjectInfoCheckExistence(JavaModelManager.java:2576)
+	at org.eclipse.jdt.internal.core.JavaProject.getPerProjectInfo(JavaProject.java:2438)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2511)
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getResolvedClasspathEntry(PackageFragmentRoot.java:623)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.mineForTests(TestCodeMiningProvider.java:60)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.lambda$0(TestCodeMiningProvider.java:40)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2026-04-19 23:39:06.107
+!MESSAGE Playwright-Java-PageObjectModel-master does not exist
+
+!ENTRY org.testng.eclipse 4 4 2026-04-19 23:39:06.246
+!MESSAGE Error
+!STACK 1
+Java Model Exception: Error in Java Model (code 969): Playwright-Java-PageObjectModel-master does not exist
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:549)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getPerProjectInfoCheckExistence(JavaModelManager.java:2576)
+	at org.eclipse.jdt.internal.core.JavaProject.getPerProjectInfo(JavaProject.java:2438)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2511)
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getResolvedClasspathEntry(PackageFragmentRoot.java:623)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.mineForTests(TestCodeMiningProvider.java:60)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.lambda$0(TestCodeMiningProvider.java:40)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2026-04-19 23:39:06.246
+!MESSAGE Playwright-Java-PageObjectModel-master does not exist
+
+!ENTRY org.testng.eclipse 4 4 2026-04-19 23:39:07.890
+!MESSAGE Error
+!STACK 1
+Java Model Exception: Error in Java Model (code 969): Playwright-Java-PageObjectModel-master does not exist
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:549)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getPerProjectInfoCheckExistence(JavaModelManager.java:2576)
+	at org.eclipse.jdt.internal.core.JavaProject.getPerProjectInfo(JavaProject.java:2438)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2511)
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getResolvedClasspathEntry(PackageFragmentRoot.java:623)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.mineForTests(TestCodeMiningProvider.java:60)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.lambda$0(TestCodeMiningProvider.java:40)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2026-04-19 23:39:07.890
+!MESSAGE Playwright-Java-PageObjectModel-master does not exist
+
+!ENTRY org.testng.eclipse 4 4 2026-04-19 23:39:14.579
+!MESSAGE Error
+!STACK 1
+Java Model Exception: Error in Java Model (code 1006): src/main/java/com/qa/opencart/pages [in Playwright-Java-PageObjectModel-master] is not on its project's build path
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getResolvedClasspathEntry(PackageFragmentRoot.java:629)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.mineForTests(TestCodeMiningProvider.java:60)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.lambda$0(TestCodeMiningProvider.java:40)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1006 2026-04-19 23:39:14.580
+!MESSAGE src/main/java/com/qa/opencart/pages [in Playwright-Java-PageObjectModel-master] is not on its project's build path
+
+!ENTRY org.testng.eclipse 4 4 2026-04-19 23:39:15.654
+!MESSAGE Error
+!STACK 1
+Java Model Exception: Error in Java Model (code 1006): src/main/java/com/qa/opencart/pages [in Playwright-Java-PageObjectModel-master] is not on its project's build path
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getResolvedClasspathEntry(PackageFragmentRoot.java:629)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.mineForTests(TestCodeMiningProvider.java:60)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.lambda$0(TestCodeMiningProvider.java:40)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1006 2026-04-19 23:39:15.654
+!MESSAGE src/main/java/com/qa/opencart/pages [in Playwright-Java-PageObjectModel-master] is not on its project's build path
+
+!ENTRY org.testng.eclipse 4 4 2026-04-19 23:39:45.072
+!MESSAGE Error
+!STACK 0
+java.util.concurrent.CancellationException
+	at org.eclipse.jface.internal.text.codemining.CancellationExceptionMonitor.isCanceled(CancellationExceptionMonitor.java:33)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.processElements(TestCodeMiningProvider.java:80)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.processElements(TestCodeMiningProvider.java:89)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.mineForTests(TestCodeMiningProvider.java:67)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.lambda$0(TestCodeMiningProvider.java:40)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.testng.eclipse 1 0 2026-04-19 23:39:53.343
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar
+  VMArgs:    -ea -Xmx1024m -XX:MaxPermSize=256m
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 56454 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output C:\Users\Nikhil\AppData\Local\Temp\testng-eclipse--635142387\testng-customsuite.xml
+java -ea -Xmx1024m -XX:MaxPermSize=256m -classpath C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar:C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar:C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar:C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar:C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar:C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar:C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar:C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar:C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar:C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar org.testng.remote.RemoteTestNG -serport 56454 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output C:\Users\Nikhil\AppData\Local\Temp\testng-eclipse--635142387\testng-customsuite.xml
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-04-19 23:40:24.668
+!MESSAGE java.util.concurrent.CancellationException
+!STACK 0
+java.util.concurrent.CompletionException: java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:636)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2480)
+	at org.eclipse.lsp4e.operations.linkedediting.LSPLinkedEditingBase.cancel(LSPLinkedEditingBase.java:85)
+	at org.eclipse.lsp4e.operations.linkedediting.LSPLinkedEditingBase.collectLinkedEditingRanges(LSPLinkedEditingBase.java:53)
+	at org.eclipse.lsp4e.operations.linkedediting.LSPLinkedEditingReconcilingStrategy.updateLinkedEditing(LSPLinkedEditingReconcilingStrategy.java:165)
+	at org.eclipse.lsp4e.operations.linkedediting.LSPLinkedEditingReconcilingStrategy.updateLinkedEditing(LSPLinkedEditingReconcilingStrategy.java:154)
+	at org.eclipse.lsp4e.operations.linkedediting.LSPLinkedEditingReconcilingStrategy.lambda$0(LSPLinkedEditingReconcilingStrategy.java:132)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4046)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3662)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+Caused by: java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.CompletableFuture.cancel(CompletableFuture.java:2478)
+	... 30 more
+
+!ENTRY org.eclipse.lsp4e 2 0 2026-04-19 23:40:25.854
+!MESSAGE Could not get hover region due to timeout after 1000 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverRegion(LSPTextHover.java:155)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverRegion(CompositeTextHover.java:101)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4273)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4071)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3659)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.lsp4e 2 0 2026-04-19 23:40:26.876
+!MESSAGE Could not get hover information due to timeout after 1000 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverInfo(LSPTextHover.java:76)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverInfo2(CompositeTextHover.java:60)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.testng.eclipse 1 0 2026-04-19 23:44:07.650
+!MESSAGE Stop the socket server as it's still pending on accepting the client
+
+!ENTRY org.testng.eclipse 1 0 2026-04-19 23:44:17.031
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar
+  VMArgs:    -ea -Xmx1024m -XX:MaxPermSize=256m
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 56463 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\src\test\resources\testrunners\testng_regressions.xml
+java -ea -Xmx1024m -XX:MaxPermSize=256m -classpath C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar:C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar:C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar:C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar:C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar:C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar:C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar:C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar:C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar:C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar org.testng.remote.RemoteTestNG -serport 56463 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\src\test\resources\testrunners\testng_regressions.xml
+
+!ENTRY org.testng.eclipse 4 4 2026-04-19 23:44:46.291
+!MESSAGE Error
+!STACK 0
+java.util.concurrent.CancellationException
+	at org.eclipse.jface.internal.text.codemining.CancellationExceptionMonitor.isCanceled(CancellationExceptionMonitor.java:33)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.processElements(TestCodeMiningProvider.java:80)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.processElements(TestCodeMiningProvider.java:89)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.mineForTests(TestCodeMiningProvider.java:67)
+	at org.testng.eclipse.ui.codemining.TestCodeMiningProvider.lambda$0(TestCodeMiningProvider.java:40)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.testng.eclipse 1 0 2026-04-19 23:46:19.444
+!MESSAGE Stop the socket server as it's still pending on accepting the client
+
+!ENTRY org.testng.eclipse 1 0 2026-04-19 23:46:23.957
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar
+  VMArgs:    -ea -Xmx1024m -XX:MaxPermSize=256m
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 56467 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output C:\Users\Nikhil\AppData\Local\Temp\testng-eclipse--535545496\testng-customsuite.xml
+java -ea -Xmx1024m -XX:MaxPermSize=256m -classpath C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar:C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar:C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar:C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar:C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar:C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar:C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar:C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar:C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar:C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar org.testng.remote.RemoteTestNG -serport 56467 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output C:\Users\Nikhil\AppData\Local\Temp\testng-eclipse--535545496\testng-customsuite.xml
+
+!ENTRY org.testng.eclipse 1 0 2026-04-19 23:46:45.427
+!MESSAGE Stop the socket server as it's still pending on accepting the client
+
+!ENTRY org.testng.eclipse 1 0 2026-04-19 23:52:45.867
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 56503 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output C:\Users\Nikhil\AppData\Local\Temp\testng-eclipse--219898157\testng-customsuite.xml
+java -ea -classpath C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar:C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar:C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar:C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar:C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar:C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar:C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar:C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar:C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar:C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar org.testng.remote.RemoteTestNG -serport 56503 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output C:\Users\Nikhil\AppData\Local\Temp\testng-eclipse--219898157\testng-customsuite.xml
+
+!ENTRY org.testng.eclipse 1 0 2026-04-19 23:54:09.832
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 56508 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output C:\Users\Nikhil\AppData\Local\Temp\testng-eclipse-2136193549\testng-customsuite.xml
+java -ea -classpath C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar:C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar:C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar:C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar:C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar:C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar:C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar:C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar:C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar:C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar org.testng.remote.RemoteTestNG -serport 56508 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output C:\Users\Nikhil\AppData\Local\Temp\testng-eclipse-2136193549\testng-customsuite.xml
+
+!ENTRY org.testng.eclipse 1 0 2026-04-19 23:59:11.060
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 56521 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\src\test\resources\testrunners\testng_regressions.xml
+java -ea -classpath C:\Users\Nikhil\eclipse\java-2023-12\eclipse\configuration\org.eclipse.osgi\561\0\.cp\lib\testng-remote.jar:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\test-classes:G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\target\classes:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\playwright\1.25.0\playwright-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar:C:\Users\Nikhil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver\1.25.0\driver-1.25.0.jar:C:\Users\Nikhil\.m2\repository\com\microsoft\playwright\driver-bundle\1.25.0\driver-bundle-1.25.0.jar:C:\Users\Nikhil\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar:C:\Users\Nikhil\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar:C:\Users\Nikhil\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar:C:\Users\Nikhil\.m2\repository\com\aventstack\extentreports\5.0.8\extentreports-5.0.8.jar:C:\Users\Nikhil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar:C:\Users\Nikhil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar:C:\Users\Nikhil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar:C:\Users\Nikhil\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar org.testng.remote.RemoteTestNG -serport 56521 -protocol json -d G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\test-output G:\Jankin_playwright\Playwright-Java-PageObjectModel-master\Playwright-Java-PageObjectModel-master\src\test\resources\testrunners\testng_regressions.xml
